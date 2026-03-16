@@ -1,0 +1,67 @@
+def get_deficiency_diseases():
+    return [
+        {
+            "title": "Scurvy",
+            "category": "Deficiency Disease",
+            "definition": "A serious, potentially fatal disease caused by a severe and chronic lack of vitamin C (ascorbic acid) in the diet. Historically infamous as a disease affecting sailors on long voyages.",
+            "causes": "Entirely caused by consuming too little vitamin C, which is essential for making collagen, an important component of bones, blood vessels, and connective tissues.",
+            "risk_factors": "Extremely restrictive diets (anorexia nervosa, severe food faddism), alcohol use disorder, severe poverty, being stranded without access to fresh fruits/vegetables, infants fed only cow's milk (rare now), and dialysis patients.",
+            "symptoms": "**Early:**<br><ul><li>Severe fatigue and weakness</li><li>Irritability and mood changes</li><li>Severe joint and muscle aches</li></ul>**Later (Classic Symptoms):**<br><ul><li>Swollen, bleeding, and spongy gums</li><li>Tooth loss</li><li>Easy bruising and red or blue spots on the skin (petechiae)</li><li>Slow wound healing</li><li>Anemia</li></ul>",
+            "diagnosis": "Diagnosed primarily on a physical exam identifying classic symptoms (especially the gums and skin) and a dietary history. Blood tests can confirm critically low levels of vitamin C.",
+            "treatment": "Scurvy is easily completely cured simply by administering high doses of vitamin C.",
+            "medicines": "<ul><li>**Vitamin C supplements:** Prescribed as oral tablets or chewables. In severe cases with malabsorption, it may be given intravenously (IV).</li></ul>",
+            "diet": "**To Eat:** MUST urgently consume foods extremely high in Vitamin C: Citrus fruits (oranges, lemons, grapefruits), kiwi, strawberries, bell peppers, broccoli, tomatoes, and potatoes.<br>**To Avoid:** Boiling vegetables for too long (prolonged heating destroys vitamin C).",
+            "home_remedies": "<ul><li>Dietary correction is the only remedy. Once vitamin C intake is restored, symptoms resolve incredibly quickly.</li><li>Practice good oral hygiene while the gums heal to prevent secondary bacterial infections.</li></ul>",
+            "prevention": "Ensure a daily dietary intake of fresh fruits and vegetables containing sufficient vitamin C. The human body cannot produce vitamin C; it must come from food.",
+            "recovery_time": "Improvement is remarkably rapid. Fatigue, lethargy, and muscle pain improve within 24 to 48 hours. Gums heal within a few days. Bruising resolves within weeks.",
+            "when_to_see_doctor": "See a doctor immediately if you experience spontaneous bleeding (especially gums), unexplained severe bruising, and extreme fatigue, particularly if you have a highly restrictive diet."
+        },
+        {
+            "title": "Rickets",
+            "category": "Deficiency Disease",
+            "definition": "A childhood bone disease characterized by softening, weakening, and distortion of the bones. The adult equivalent is called osteomalacia.",
+            "causes": "Primarily caused by a prolonged lack of vitamin D, which helps a child's body absorb calcium and phosphorus from food. Without vitamin D, bones fail to mineralize properly.",
+            "risk_factors": "Infants exclusively breastfed without vitamin D supplementation (breast milk is low in vitamin D), dark skin (absorbs less sunlight for natural vitamin D production), lack of sun exposure, and lactose intolerance/avoidance of dairy.",
+            "symptoms": "**Common:**<br><ul><li>Delayed growth and short stature</li><li>Pain in the spine, pelvis, and legs</li><li>Muscle weakness</li></ul>**Bone Deformities:**<br><ul><li>Bowed legs or knock knees</li><li>Thickened wrists and ankles</li><li>Breastbone projection (pigeon chest)</li><li>Soft skull bones (in infants)</li></ul>",
+            "diagnosis": "A doctor can usually detect rickets by pressing gently on a child's bones (checking for softness or pain). X-rays confirm the bone deformities. Blood tests reveal low levels of calcium and phosphorus.",
+            "treatment": "The goal is to increase the body's levels of vitamin D and calcium to harden the bones and prevent further deformity. Established bone deformities may require braces or surgery.",
+            "medicines": "<ul><li>**Prescription Vitamin D:** High-dose oral drops or pills for several months.</li><li>**Calcium supplements:** Given simultaneously if dietary intake is insufficient to build new bone.</li></ul>",
+            "diet": "**To Eat:** Foods rich in or fortified with Vitamin D: Fatty fish (salmon, tuna), egg yolks, fortified milk, fortified orange juice, and fortified cereals.<br>**To Avoid:** Foods extremely high in phytic acid (found in raw beans and some grains), which can interfere with calcium absorption if eaten in massive quantities without balance.",
+            "home_remedies": "<ul><li>Increase sensible sun exposure (the body intrinsically produces vitamin D when bare skin is exposed to UVB rays). Even 10-15 minutes a day during peak hours can be highly effective.</li></ul>",
+            "prevention": "Pregnant women should ensure adequate vitamin D intake. Provide exclusively breastfed infants with a vitamin D supplement daily. Ensure children get adequate calcium and safe sun exposure.",
+            "recovery_time": "With adequate vitamin D and calcium replacement, bone pain and muscle weakness improve quickly within weeks. However, significant bone deformities may be permanent without surgical intervention.",
+            "when_to_see_doctor": "See a pediatrician if your child develops severe bone pain, muscle weakness, or obvious skeletal deformities (like bowed legs that do not correct naturally with age)."
+        },
+        {
+            "title": "Night Blindness (Nyctalopia)",
+            "category": "Deficiency Disease",
+            "definition": "Not a disease in itself, but a symptom of an underlying problem. It refers to the inability or impaired ability to see in low-light conditions, such as at night or in a dimly lit room.",
+            "causes": "While cataracts or genetic diseases (like retinitis pigmentosa) cause night blindness, the most common *preventable* cause globally is a severe deficiency in Vitamin A, which the retina needs to function properly in the dark.",
+            "risk_factors": "Living in poverty in developing countries (where dietary Vitamin A is scarce), strict vegan diets without supplementation, and conditions affecting fat absorption (like Cystic Fibrosis or Crohn's disease), since Vitamin A is fat-soluble.",
+            "symptoms": "**Common:**<br><ul><li>Struggling to see objects in dim light.</li><li>Difficulty driving at night or recognizing faces in the dark.</li><li>Taking an abnormally long time for the eyes to adjust when moving from a brightly lit area to a dark area (like entering a movie theater).</li><li>Dry eyes (Xerophthalmia) often accompany the deficiency.</li></ul>",
+            "diagnosis": "An eye doctor (ophthalmologist) will perform a comprehensive eye exam to check the retina and rule out cataracts or glaucoma. A simple blood test can confirm severe Vitamin A deficiency.",
+            "treatment": "Treatment depends totally on the cause. If the cause is a lack of Vitamin A, replacing it cures the condition completely. If the cause is a cataract, surgery is completely restorative.",
+            "medicines": "<ul><li>**Vitamin A (Retinol) Supplements:** High-dose oral supplements prescribed by a doctor. (Over-the-counter supplements should be used cautiously, as severe excess Vitamin A is toxic).</li></ul>",
+            "diet": "**To Eat:** The liver stores Vitamin A. Eat liver, fish oils. Eat foods extremely high in beta-carotene (which the body turns into Vitamin A): Carrots, sweet potatoes, spinach, kale, cantaloupe, and dark leafy greens.<br>**To Avoid:** Excessively low-fat diets; Vitamin A must be consumed with dietary fat to be absorbed into the body.",
+            "home_remedies": "<ul><li>Wear sunglasses outside during the day to protect the retina from intense UV damage, easing the transition into the dark later.</li><li>Incorporate dark leafy greens into every meal.</li></ul>",
+            "prevention": "Ensure a daily diet rich in brightly colored fruits and vegetables and (if non-vegan) dairy and eggs. If you have an absorption disorder, take prescribed fat-soluble vitamins.",
+            "recovery_time": "If caused by a Vitamin A deficiency, vision improvement is usually remarkably fast—often within a few weeks of beginning proper, high-dose supplementation.",
+            "when_to_see_doctor": "See an eye doctor if you find yourself unable to drive safely at night, continually tripping in dim environments, or if your eyes begin to feel excessively dry and painful."
+        },
+        {
+            "title": "Anemia (Iron Deficiency)",
+            "category": "Deficiency Disease",
+            "definition": "A condition in which blood lacks adequate healthy red blood cells, which carry oxygen to the body's tissues. The most common type is Iron Deficiency Anemia, caused by a lack of iron.",
+            "causes": "Caused when the body has an insufficient amount of iron to produce hemoglobin, the protein in red blood cells that carries oxygen. This can occur due to blood loss (heavy menstrual periods, bleeding ulcers), poor diet lacking iron, or an inability to absorb iron.",
+            "risk_factors": "Most common in women (due to menstruation and pregnancy), frequent blood donors, infants (premature), vegetarians/vegans who don't properly replace meat-based iron, and people with intestinal disorders like Celiac disease.",
+            "symptoms": "**Common:**<br><ul><li>Extreme fatigue and profound weakness</li><li>Pale or yellowish skin</li><li>Cold hands and feet</li><li>Shortness of breath, especially upon exertion</li><li>Dizziness, lightheadedness, or feeling like you might pass out</li><li>Unusual cravings for non-nutritive substances, such as ice, dirt, or starch (a condition called Pica)</li></ul>",
+            "diagnosis": "Anemia is usually diagnosed with a routine Complete Blood Count (CBC) test, specifically checking hematocrit levels and hemoglobin. Further tests (ferritin tests) determine if the cause is iron deficiency. Sometimes endoscopies are needed to find the source of internal bleeding.",
+            "treatment": "Treatment aims to replenish the iron stores in the body and treat the underlying cause (e.g., stopping heavy bleeding). It is not treated with dietary changes alone once it becomes severe.",
+            "medicines": "<ul><li>**Oral Iron Supplements:** (Ferrous sulfate) prescribed for multiple months.</li><li>**Intravenous (IV) Iron:** Used in severe cases, for rapid absorption, or for patients who cannot tolerate the gastrointestinal side effects of oral pills.</li><li>**Blood transfusions:** Rarely used, only in life-threatening emergencies.</li></ul>",
+            "diet": "**To Eat:** Heme iron (from meat) is most easily absorbed: Red meat, pork, poultry, seafood. Non-heme iron: Dark green leafy vegetables (spinach), beans, peas, iron-fortified cereals. Consume Vitamin C (citrus) simultaneously to massively boost iron absorption.<br>**To Avoid:** Drinking tea, coffee, or milk alongside iron supplements or iron-rich meals, as these uniquely inhibit iron absorption.",
+            "home_remedies": "<ul><li>Take oral iron supplements on an empty stomach to maximize absorption, though they may cause an upset stomach.</li><li>DO NOT take antacids alongside iron supplements as acid is required to digest iron.</li></ul>",
+            "prevention": "Eat an iron-rich diet, particularly for rapidly growing children, menstruating women, and pregnant individuals. Cook in cast-iron skillets (which introduces microscopic amounts of dietary iron into food).",
+            "recovery_time": "Most people feel noticeably better within a few days of starting supplements. However, you must take the pills for 3 to 6 months to completely rebuild the marrow's iron reserves.",
+            "when_to_see_doctor": "See a doctor if you feel unexplained fatigue, are pale, and frequently feel out of breath after climbing steps. NEVER self-diagnose and chronically take heavy iron supplements without a blood test, as excessive iron accumulation is toxic."
+        }
+    ]

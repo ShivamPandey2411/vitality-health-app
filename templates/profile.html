@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Health Profile | Vitality Health</title>
+    <meta name="description" content="View your personalized Vitality Health profile and access your saved medical articles and health preferences.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Robust FontAwesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #eff6ff;
+            --secondary: #10b981;
+            /* Health/Green */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Global Header (Reused from index.html) --- */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            color: var(--secondary);
+            font-size: 1.75rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* --- Profile Specific Styles --- */
+        .profile-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .profile-header {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .profile-info h1 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-info p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-section {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dashboard-header h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .dashboard-header h2 i {
+            color: var(--primary);
+        }
+
+        .badge {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Saved Articles Grid */
+        .bookmarks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .bookmark-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bookmark-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .bookmark-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .bookmark-title {
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .bookmark-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .bookmark-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .read-more-btn {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .read-more-btn:hover {
+            text-decoration: underline;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 0.5rem;
+        }
+
+        .remove-btn:hover {
+            color: #ef4444;
+            /* Red for delete */
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            color: var(--border);
+            margin-bottom: 1rem;
+        }
+
+        .empty-state p {
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .bookmarks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="{{ url_for('home') }}" class="logo">
+                <i class="fa-solid fa-heart-pulse logo-icon"></i>
+                Vitality Health
+            </a>
+
+            <nav id="nav-menu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('profile') }}" class="nav-link"
+                    style="color: var(--primary); font-weight: 600;">Profile</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline">Log Out</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="profile-container">
+        <!-- User Welcome Plate -->
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="profile-info">
+                <h1>Welcome back, {{ user.username }}!</h1>
+                <p>{{ user.email }}</p>
+            </div>
+        </div>
+
+        <!-- Saved Articles Dashboard -->
+        <div class="dashboard-section">
+            <div class="dashboard-header">
+                <h2><i class="fa-solid fa-bookmark"></i> My Saved Medical Prescriptions</h2>
+                <span class="badge">{{ user.bookmarks|length }} Articles</span>
+            </div>
+
+            {% if user.bookmarks %}
+            <div class="bookmarks-grid">
+                {% for article in user.bookmarks %}
+                <div class="bookmark-card" id="bookmark-{{ article.id }}">
+                    <span class="bookmark-category">{{ article.category }}</span>
+                    <h3 class="bookmark-title">{{ article.title }}</h3>
+                    <p class="bookmark-desc">{{ article.definition }}</p>
+
+                    <div class="bookmark-footer">
+                        <a href="{{ url_for('home') }}?search={{ article.title|urlencode }}" class="read-more-btn">
+                            View Full Profile <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button class="remove-btn" onclick="removeBookmark({{ article.id }})" title="Remove Bookmark">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <i class="fa-solid fa-folder-open fa-4x"></i>
+                <h3>No articles saved yet</h3>
+                <p>When you search for a disease on the homepage, click the "Save" button to build your personal medical
+                    library here.</p>
+                <a href="{{ url_for('home') }}" class="btn btn-primary">Go to Search</a>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+
+    <script>
+        async function removeBookmark(articleId) {
+            if (confirm("Are you sure you want to remove this medical profile from your saved list?")) {
+                try {
+                    const response = await fetch(`/api/bookmark/${articleId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Animate removal
+                        const card = document.getElementById(`bookmark-${articleId}`);
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+
+                        setTimeout(() => {
+                            // Reload page to update the badge count and cleanly handle empty states
+                            window.location.reload();
+                        }, 300);
+
+                    } else {
+                        alert("Failed to remove bookmark. Please try again.");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("A network error occurred.");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

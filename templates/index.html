@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitality Health | Expert Medical Information & Care</title>
+    <meta name="description" content="Vitality Health provides expert, peer-reviewed medical information, specialist directories, and personalized wellness tracking to empower your health journey.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Robust FontAwesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #eff6ff;
+            --secondary: #10b981;
+            /* Health/Green */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Search Bar */
+        .search-box {
+            display: flex;
+            background: var(--white);
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-form {
+            display: flex;
+            width: 100%;
+        }
+
+        .search-icon-wrapper {
+            padding: 1.25rem 0 1.25rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            padding: 1rem 1rem;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px 0 0 50px;
+            color: var(--text-main);
+            width: 100%;
+        }
+
+        .search-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* --- Features/Categories --- */
+        .section-padding {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        /* Bookmark Button Styles */
+        .bookmark-btn {
+            background: none;
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: all 0.2s;
+            float: right;
+            margin-top: -30px;
+            /* Pull it up into the header space visually */
+        }
+
+        .bookmark-btn:hover {
+            background-color: var(--gray-50);
+            border-color: var(--text-muted);
+        }
+
+        .bookmark-btn.bookmarked {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-color: var(--primary-light);
+        }
+
+        .bookmark-btn.bookmarked i {
+            color: var(--primary);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .category-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .category-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- Trust/E-E-A-T Section --- */
+        .trust-section {
+            background-color: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-img {
+            height: 200px;
+            background-color: #cbd5e1;
+            background-image: radial-gradient(var(--text-muted) 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .article-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-category {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+        }
+
+        .author-info .name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .author-info .credentials {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .verified-badge {
+            color: var(--secondary);
+            font-size: 0.75rem;
+        }
+
+        /* Search Results Styles */
+        .search-results-container {
+            max-width: 800px;
+            margin: -2rem auto 3rem auto;
+            position: relative;
+            z-index: 10;
+            display: none;
+        }
+
+        .search-results-container.active {
+            display: block;
+        }
+
+        .result-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-top: 4px solid var(--primary);
+            text-align: left;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .result-title {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-category {
+            font-size: 0.85rem;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .result-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .result-section {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .result-section.precautions {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .result-section.precautions h4 {
+            color: #b91c1c;
+        }
+
+        .result-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .result-section p {
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .no-results {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            color: var(--text-muted);
+        }
+
+        /* Markdown generated by AI */
+        .markdown-body {
+            line-height: 1.6;
+            color: var(--text-main);
+            font-size: 1.05rem;
+        }
+
+        .markdown-body h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .markdown-body ul,
+        .markdown-body ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .markdown-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .markdown-body p {
+            margin-bottom: 1rem;
+        }
+
+        .markdown-body strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 1rem 2rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .search-box {
+                background: transparent;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+
+            .search-form {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .search-icon-wrapper {
+                display: none;
+            }
+
+            .search-input {
+                border-radius: var(--radius-md);
+                border: 1px solid var(--border);
+                padding: 1rem;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .search-btn {
+                border-radius: var(--radius-md);
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                Vitality Health
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation map">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#" class="dummy-link">Conditions</a>
+                <a href="#" class="dummy-link">Treatments</a>
+                <a href="#" class="dummy-link">Find a Doctor</a>
+
+                {% if current_user.is_authenticated %}
+                <!-- Logged In View -->
+                <span style="color: var(--primary); font-weight: 600; margin-left: 1rem;">
+                    <i class="fa-solid fa-user-circle"></i> Hi, {{ current_user.username }}
+                </span>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline" style="margin-left: 1rem;">Log Out</a>
+                {% else %}
+                <!-- Logged Out View -->
+                <a href="{{ url_for('login') }}" class="btn btn-outline">Log In</a>
+                <a href="{{ url_for('register') }}" class="btn btn-primary">Sign Up</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <!-- Flash Messages (Uses classes defined in CSS above) -->
+    <div class="flash-messages-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="flash {{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" style="padding-top: 3rem;">
+        <div class="hero-container">
+            <h1>Trusted Medical Information & Expert Care</h1>
+            <p>Empowering you with peer-reviewed health data, specialist directories, and personalized wellness
+                tracking.</p>
+
+            <div class="search-box">
+                <form class="search-form" id="search-form">
+                    <div class="search-icon-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <input type="text" class="search-input" id="search-input"
+                        placeholder="Search for conditions, symptoms, or medications..." required>
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results Section (Hidden by default) -->
+    <div class="search-results-container" id="search-results">
+        <!-- Results will be injected here by JavaScript -->
+    </div>
+
+    <!-- Care Categories -->
+    <section class="section-padding">
+        <h2 class="section-title">Explore by Specialty</h2>
+        <div class="categories-grid">
+            <a href="#" class="category-card dummy-link">
+                <div class="category-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h3>Mental Health</h3>
+                <p>Therapy resources, anxiety management, and specialist directories.</p>
+            </a>
+            <a href="#" class="category-card dummy-link">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart-circle-bolt"></i>
+                </div>
+                <h3>Cardiology</h3>
+                <p>Heart health, blood pressure management, and preventative care.</p>
+            </a>
+            <a href="#" class="category-card dummy-link">
+                <div class="category-icon">
+                    <i class="fa-solid fa-apple-whole"></i>
+                </div>
+                <h3>Nutrition & Diet</h3>
+                <p>Meal planning, dietary restrictions, and certified nutritionist advice.</p>
+            </a>
+            <a href="#" class="category-card dummy-link">
+                <div class="category-icon">
+                    <i class="fa-solid fa-child-reaching"></i>
+                </div>
+                <h3>Pediatrics</h3>
+                <p>Child development milestones, vaccinations, and family health.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- E-E-A-T / Trustworthy Articles -->
+    <section class="trust-section section-padding">
+        <h2 class="section-title">Latest Medical Insights</h2>
+        <div class="articles-grid">
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="article-img">
+                    <i class="fa-solid fa-image fa-3x" style="opacity: 0.5;"></i>
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Wellness</span>
+                    <h3 class="article-title">Understanding the Impact of Quality Sleep on Immune Function</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Recent studies reveal
+                        direct correlations between consistent REM sleep cycles and enhanced immune system response.</p>
+
+                    <div class="article-meta">
+                        <div class="author-avatar">MS</div>
+                        <div class="author-info">
+                            <p class="name">Dr. Maya Sharma</p>
+                            <p class="credentials">
+                                <i class="fa-solid fa-circle-check verified-badge"></i>
+                                Medically Reviewed • Neurologist
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="article-card">
+                <div class="article-img">
+                    <i class="fa-solid fa-image fa-3x" style="opacity: 0.5;"></i>
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Nutrition</span>
+                    <h3 class="article-title">The Mediterranean Diet: A Comprehensive Guide for Heart Health</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">How integrating olive
+                        oil, whole grains, and lean proteins can significantly reduce cardiovascular risks.</p>
+
+                    <div class="article-meta">
+                        <div class="author-avatar">JR</div>
+                        <div class="author-info">
+                            <p class="name">James Reynolds, RD</p>
+                            <p class="credentials">
+                                <i class="fa-solid fa-circle-check verified-badge"></i>
+                                Medically Reviewed • Dietitian
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="article-card">
+                <div class="article-img">
+                    <i class="fa-solid fa-image fa-3x" style="opacity: 0.5;"></i>
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Mental Health</span>
+                    <h3 class="article-title">Recognizing Early Signs of Burnout in the Modern Workplace</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Differentiating
+                        between standard fatigue and chronic burnout, and actionable steps to recover.</p>
+
+                    <div class="article-meta">
+                        <div class="author-avatar">KT</div>
+                        <div class="author-info">
+                            <p class="name">Dr. Kevin Torres</p>
+                            <p class="credentials">
+                                <i class="fa-solid fa-circle-check verified-badge"></i>
+                                Medically Reviewed • Psychologist
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- JavaScript to make elements functional -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const navLinks = document.getElementById('nav-links');
+
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // 2. Search Form Functionality
+            const searchForm = document.getElementById('search-form');
+            const searchInput = document.getElementById('search-input');
+            const isLoggedIn = {{ 'true' if current_user.is_authenticated else 'false' }
+        };
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', async (e) => {
+                "no-results" style = "padding: 3rem;" >
+                                        <i class="fa-solid fa-circle-notch fa-spin fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                                        <h3 style="color: var(--primary-dark);">Consulting AI Medical Database...</h3>
+                                        <p>Generating a comprehensive report for "${query}". This may take a few seconds.</p>
+                                    </div >
+                    `;
+                        resultsContainer.classList.add('active');
+                        resultsCont
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (query !== "") {
+                    try {
+                        const resultsContainer = document.getElementById('search-results');
+
+                        // Show loading state
+                        resultsContainer.innerHTML = `
+                    < div class=ainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+
+                resultsContainer.innerHTML = ''; // Clear loading
+
+                if (data.results && data.results.length > 0) {
+                    data.results.forEach(item => {
+                        const card = document.createElement('div');
+                        card.className = 'result-card';
+
+                        if (item.type === 'ai_report' || item.type === 'error') {
+                            card.innerHTML = `
+                                                <h2 style="margin-bottom: 1.5rem; color: var(--primary-dark); font-size: 1.8rem; border-bottom: 3px solid var(--primary); padding-bottom: 1rem;">
+                                                    <i class="fa-solid ${item.type === 'error' ? 'fa-triangle-exclamation' : 'fa-robot'}" style="color: ${item.type === 'error' ? '#b91c1c' : 'var(--primary)'}; margin-right: 0.5rem;"></i>
+                                                    ${item.title}
+                                                </h2>
+                                                <div class="markdown-body">
+                                                    ${item.html}
+                                                </div>
+                                            `;
+                        } else {
+                            // 12-Point Prescription Support
+                            card.innerHTML = `
+                                                <div class="result-header" style="margin-bottom: 2rem; border-bottom: 2px solid var(--border); padding-bottom: 1rem;">
+                                                    <div>
+                                                        <h3 class="result-title" style="font-size: 2rem; color: var(--primary-dark); margin-bottom: 0.5rem;">
+                                                            <i class="fa-solid fa-file-medical"></i> ${item.title}
+                                                        </h3>
+                                                        ${isLoggedIn ? `
+                                                            <button class="bookmark-btn ${item.is_bookmarked ? 'bookmarked' : ''}" data-id="${item.id}" onclick="toggleBookmark(this, ${item.id})" title="${item.is_bookmarked ? 'Remove from Profile' : 'Save to Profile'}">
+                                                                <i class="${item.is_bookmarked ? 'fa-solid' : 'fa-regular'} fa-bookmark"></i>
+                                                                <span>${item.is_bookmarked ? 'Saved' : 'Save'}</span>
+                                                            </button>
+                                                        ` : ''}
+                                                    </div>
+                                            </div>
+                                            
+                                            <div style="display: grid; gap: 1.5rem;">
+                                                <div>
+                                                    <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-book-medical"></i> 1. Definition</h4>
+                                                    <p class="result-description">${item.definition || 'No definition available.'}</p>
+                                                </div>
+                                                
+                                                <div>
+                                                    <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-virus"></i> 2. Causes</h4>
+                                                    <div class="markdown-body" style="font-size: 0.95rem;">${item.causes || 'Not specified.'}</div>
+                                                </div>
+                                                
+                                                <div class="result-section" style="background: #fffbeb; border-left-color: #f59e0b;">
+                                                    <h4 style="color: #b45309;"><i class="fa-solid fa-users-viewfinder"></i> 3. Risk Factors</h4>
+                                                    <p>${item.risk_factors || 'Not specified.'}</p>
+                                                </div>
+                                                
+                                                <div>
+                                                    <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-temperature-arrow-up"></i> 4. Symptoms</h4>
+                                                    <div class="markdown-body" style="font-size: 0.95rem;">${item.symptoms || 'Not specified.'}</div>
+                                                </div>
+                                                
+                                                <div>
+                                                    <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-microscope"></i> 5. Diagnosis</h4>
+                                                    <p class="result-description">${item.diagnosis || 'Not specified.'}</p>
+                                                </div>
+                                                
+                                                <div class="result-section">
+                                                    <h4><i class="fa-solid fa-user-doctor"></i> 6. Treatment/Cure</h4>
+                                                    <p>${item.treatment || 'Consult a healthcare professional for specific treatments.'}</p>
+                                                </div>
+                                                
+                                                <div class="result-section" style="background: #f0fdf4; border-left-color: #22c55e;">
+                                                    <h4 style="color: #15803d;"><i class="fa-solid fa-pills"></i> 7. Common Medicines</h4>
+                                                    <div class="markdown-body" style="font-size: 0.95rem;">${item.medicines || 'Always consult a doctor before taking medication.'}</div>
+                                                </div>
+                                                
+                                                <div>
+                                                    <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-apple-whole"></i> 8. Diet Recommendations</h4>
+                                                    <div class="markdown-body" style="font-size: 0.95rem;">${item.diet || 'Not specified.'}</div>
+                                                </div>
+                                                
+                                                <div>
+                                                    <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-house-chimney-medical"></i> 9. Home Remedies</h4>
+                                                    <div class="markdown-body" style="font-size: 0.95rem;">${item.home_remedies || 'Not specified.'}</div>
+                                                </div>
+                                                
+                                                <div>
+                                                    <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-shield-virus"></i> 10. Prevention</h4>
+                                                    <p class="result-description">${item.prevention || 'Not specified.'}</p>
+                                                </div>
+                                                
+                                                <div>
+                                                    <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-clock-rotate-left"></i> 11. Recovery Time</h4>
+                                                    <p class="result-description">${item.recovery_time || 'Not specified.'}</p>
+                                                </div>
+                                                
+                                                <div class="result-section precautions">
+                                                    <h4><i class="fa-solid fa-triangle-exclamation"></i> 12. When to See a Doctor</h4>
+                                                    <p>${item.when_to_see_doctor || 'Always consult a doctor if you are concerned about your health.'}</p>
+                                                </div>
+                                                
+                                                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border); font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+                                                    <strong>Medical Disclaimer:</strong> This information is for educational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+                                                </div>
+                                            </div>
+                                        `;
+                        }
+                        resultsContainer.appendChild(card);
+                    });
+                } else {
+                    resultsContainer.innerHTML = `
+                                    <div class="no-results">
+                                        <i class="fa-solid fa-search fa-3x" style="color: #cbd5e1; margin-bottom: 1rem;"></i>
+                                        <h3>No matches found</h3>
+                                        <p>We couldn't find any medical articles matching "${query}".</p>
+                                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Try searching for terms like "Fever", "Cold", or "Diabetes".</p>
+                                    </div>
+                                `;
+                }
+
+                resultsContainer.classList.add('active');
+                resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            } catch (error) {
+                console.error('Error fetching search results:', error);
+                alert('An error occurred while searching.');
+            }
+        }
+            });
+
+        // --- Auto-Search from Profile Link ---
+        // If the user clicked "View Full Profile" from their dashboard, the URL will have ?search=DiseaseName
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('search');
+        if (searchQuery) {
+            searchInput.value = searchQuery;
+
+            // Automate the form submission
+            const event = new Event('submit', { cancelable: true });
+            searchForm.dispatchEvent(event);
+
+            // Clean up URL so the user can share it cleanly if they want later
+            window.history.replaceState({}, document.title, "/");
+        }
+        }
+
+        });
+
+        // --- Bookmark Toggle Logic ---
+        async function toggleBookmark(buttonElement, articleId) {
+            try {
+                const response = await fetch(`/api/bookmark/${articleId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+
+                    // Update the button UI
+                    const icon = buttonElement.querySelector('i');
+                    const text = buttonElement.querySelector('span');
+
+                    if (data.action === 'added') {
+                        buttonElement.classList.add('bookmarked');
+                        icon.classList.remove('fa-regular');
+                        icon.classList.add('fa-solid');
+                        text.textContent = "Saved";
+                        buttonElement.title = "Remove from Profile";
+                    } else {
+                        buttonElement.classList.remove('bookmarked');
+                        icon.classList.remove('fa-solid');
+                        icon.classList.add('fa-regular');
+                        text.textContent = "Save";
+                        buttonElement.title = "Save to Profile";
+                    }
+                } else {
+                    console.error("Failed to toggle bookmark");
+                }
+            } catch (error) {
+                console.error("Error toggling bookmark:", error);
+            }
+        }
+    </script>
+</body>
+
+</html>
