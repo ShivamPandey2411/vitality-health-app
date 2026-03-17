@@ -336,10 +336,9 @@ def init_db():
         db.session.commit()
         print(f"Database initialized with {len(demo_articles)} expanded demo articles.")
 
-# Ensure DB is initialized before first request
-with app.app_context():
-    init_db()
-
 if __name__ == '__main__':
+    # Ensure DB is initialized before first local request
+    with app.app_context():
+        init_db()
     # Run server locally
     app.run(debug=True, port=5000)
