@@ -88,6 +88,11 @@ def home():
     # We pass current_user to the template automatically via Flask-Login
     return render_template('index.html')
 
+@app.route('/googlee6fa317f29b7e15d.html')
+def google_verification():
+    """Serve the Google Search Console verification file."""
+    return app.send_static_file('googlee6fa317f29b7e15d.html')
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """Handle user registration."""
