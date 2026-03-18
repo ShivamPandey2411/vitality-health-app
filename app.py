@@ -88,6 +88,55 @@ def home():
     # We pass current_user to the template automatically via Flask-Login
     return render_template('index.html')
 
+@app.route('/robots.txt')
+def robots_txt():
+    """Serve the robots.txt file to allow search engine crawling."""
+    robots_content = "User-agent: *\nDisallow:\nSitemap: https://vitality-health-app.onrender.com/sitemap.xml\n"
+    from flask import Response
+    return Response(robots_content, mimetype="text/plain")
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    """Generate a dynamic XML sitemap for SEO."""
+    from flask import Response
+    from datetime import datetime
+    import xml.etree.ElementTree as ET
+
+    # Today's date for 'lastmod' parameter
+    today = datetime.now().strftime('%Y-%m-%d')
+    base_url = "https://vitality-health-app.onrender.com"
+
+    # Create root XML element
+    urlset = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+
+    # Add homepage
+    homepage = ET.SubElement(urlset, "url")
+    ET.SubElement(homepage, "loc").text = f"{base_url}/"
+    ET.SubElement(homepage, "lastmod").text = today
+    ET.SubElement(homepage, "changefreq").text = "weekly"
+    ET.SubElement(homepage, "priority").text = "1.0"
+    
+    # Add authentication pages
+    register = ET.SubElement(urlset, "url")
+    ET.SubElement(register, "loc").text = f"{base_url}/register"
+    ET.SubElement(register, "changefreq").text = "monthly"
+    ET.SubElement(register, "priority").text = "0.8"
+
+    login = ET.SubElement(urlset, "url")
+    ET.SubElement(login, "loc").text = f"{base_url}/login"
+    ET.SubElement(login, "changefreq").text = "monthly"
+    ET.SubElement(login, "priority").text = "0.8"
+
+    # Add dynamically generated article search endpoints/metadata (if we had dedicated article pages)
+    # Note: Since the articles are served via search API currently, we declare the core pages above.
+
+    # Convert to string
+    xml_str = ET.tostring(urlset, encoding='utf-8', method='xml').decode('utf-8')
+    # Prepend XML declaration
+    xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n' + xml_str
+
+    return Response(xml_str, mimetype="application/xml")
+
 @app.route('/googlee6fa317f29b7e15d.html')
 def google_verification():
     """Serve the Google Search Console verification file."""
