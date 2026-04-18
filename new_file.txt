@@ -1,0 +1,74 @@
+my new project is Project: Disaster Alert + Smart Safe Route System
+🕒 ⏳ 24-Hour Hackathon Plan
+🟢 Phase 1: Planning (0–2 hrs)
+Finalize features:
+Map + location
+Danger zones
+Safe route
+SOS button
+Assign roles (don’t skip this)
+👥 Team Roles (stick to this)
+👨💻 Person 1 — Frontend
+UI design
+Map integration
+Buttons (SOS, alerts)
+👨💻 Person 2 — Backend
+APIs (weather, location)
+Route logic
+Server setup
+👨💻 Person 3 — Smart Features
+Danger zone logic
+Alert system (SMS/mock)
+Final integration
+🟡 Phase 2: Basic Setup (2–6 hrs)
+🔹 Step 1: Create Project
+Frontend: React (or simple HTML if time is less)
+Backend: Node.js (Express) OR Python (Flask)
+🔹 Step 2: Google Maps Integration
+
+Frontend person:
+
+Show map
+Get user location
+Place marker
+
+👉 Output: “User can see their location on map”
+
+🔴 Phase 3: Core Features (6–14 hrs)
+🔥 Feature 1: Danger Zones
+Create fake disaster zones (hardcode coordinates)
+Mark them in RED on map
+
+👉 Simple but effective for demo
+
+🔥 Feature 2: Safe Route Logic
+Use Google Directions API
+Avoid danger zones (basic logic: reroute around them)
+
+👉 Even basic rerouting = impressive
+
+🔥 Feature 3: Nearby Shelters
+Hardcode 3–5 safe shelters
+Show nearest one
+🔥 Feature 4: SOS Button
+Button → sends alert (simulate or use API)
+
+Show message:
+
+“Emergency alert sent with your location”
+
+🟣 Phase 4: Smart Add-ons (14–20 hrs)
+
+Pick ANY 1–2 (don’t overdo):
+
+Weather-based alert (rain → flood warning)
+Voice alert (“Evacuate area”)
+Simple AI logic:
+If area = flood-prone → show warning
+🔵 Phase 5: UI + Polish (20–22 hrs)
+Clean UI (dark theme looks cool 😎)
+Add:
+Title
+Icons
+Buttons
+Smooth demo flow
